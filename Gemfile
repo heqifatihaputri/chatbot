@@ -30,6 +30,7 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bootstrap'
+gem 'pg_search'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -43,6 +44,9 @@ gem 'bootstrap'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
 end
 
 group :development do

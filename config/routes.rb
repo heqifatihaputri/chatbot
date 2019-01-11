@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  root 'home#index'
   resources :suggestions
   resources :answers
   resources :languages
-  root 'home#index'
+  get 'rooms' => 'rooms#index'
 
   devise_for :admins
   devise_for :users, controllers: {

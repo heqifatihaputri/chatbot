@@ -1,3 +1,3 @@
 class Answer < ActiveRecord::Base
-	has_many :suggestions
+	has_and_belongs_to_many :suggestions
 end

@@ -12,9 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description, "Keyword" %><br>
     <%= f.text_area :description %>
   </div>
+  <div>
+    <%= f.label :answers %>
+    <%= collection_select(:suggestion, :answer_ids, Answer.all, :id, :description, {}, { :multiple => true } )%>
   <div class="actions">
     <%= f.submit %>
   </div>

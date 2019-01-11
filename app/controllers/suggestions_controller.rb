@@ -26,6 +26,13 @@ class SuggestionsController < ApplicationController
   def create
     @suggestion = Suggestion.new(suggestion_params)
 
+    params[:suggestion][:answer_ids].each do |answer_id|
+      unless answer_id.empty?
+      answer = Answer.find(answer_id)
+        @suggestion.answers << answer
+      end
+    end
+
     respond_to do |format|
       if @suggestion.save
         format.html { redirect_to @suggestion, notice: 'Suggestion was successfully created.' }
@@ -69,6 +76,6 @@ class SuggestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def suggestion_params
-      params.require(:suggestion).permit(:description)
+      params.require(:suggestion).permit(:description, :answer_ids => [])
     end
 end
